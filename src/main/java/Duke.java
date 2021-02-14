@@ -20,7 +20,7 @@ public class Duke {
 
         Storage st = new Storage();
         st.initialise(st.getDefaultFilePath());
-        ArrayList<Task> lst = new ArrayList<>();
+        ArrayList<Task> list = new ArrayList<>();
 
         while (sc.hasNext()) {
             String input = sc.nextLine();
@@ -29,7 +29,7 @@ public class Duke {
                 System.out.println("Bye. Hope to see you again!");
                 break;
             } else {
-                tl.createTask(input, sc, lst);
+                tl.createTask(input, sc, list);
             }
         }
     }
@@ -38,10 +38,10 @@ public class Duke {
      * You should have your own function to generate a response to user input.
      * Replace this stub with your completed method.
      */
-    ArrayList<Task> lst = new ArrayList<>();
+    ArrayList<Task> list = new ArrayList<>();
     public String getResponse(String input) {
         String[] splited = input.split("\\s+");
-        return TaskList.guiTask(splited, lst);
+        return TaskList.guiTask(splited, list);
     }
 
 }

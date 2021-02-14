@@ -13,9 +13,9 @@ public class Deadline extends Task {
     }
 
     /**
-     * makes a deadline with the string given
-     * @param line input string that will be split into the task description and date
-     * @return a Deadline
+     * makes a deadline with the string given.
+     * @param line input string that will be split into the task description and date.
+     * @return a Deadline.
      * @throws DukeException
      */
 
@@ -30,13 +30,12 @@ public class Deadline extends Task {
             LocalTime time = LocalTime.parse(temp[1]);
             LocalDate d = LocalDate.parse(date);
             LocalDateTime dt = d.atTime(time);
-            //System.out.println(d.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
             return new Deadline(task, dt);
         }
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + "(by: " + by.format(DateTimeFormatter.ofPattern("MMM d yyyy h a")) + ")";
+        return "[D]" + super.toString() + "(by: " + by.format(DateTimeFormatter.ofPattern("MMM d yyyy, ha")) + ")";
     }
 }

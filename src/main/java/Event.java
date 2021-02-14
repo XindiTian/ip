@@ -7,9 +7,9 @@ public class Event extends Task {
     }
 
     /**
-     * makes an event with the string given
-     * @param line input string that will be split into the task description and date
-     * @return an Event
+     * makes an event with the string given.
+     * @param line input string that will be split into the task description and date.
+     * @return an Event.
      * @throws DukeException
      */
 
