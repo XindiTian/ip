@@ -1,7 +1,12 @@
-public class Event extends Task {
-    protected String at;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
-    public Event(String des, String at) {
+public class Event extends Task {
+    protected LocalDateTime at;
+
+    public Event(String des, LocalDateTime at) {
         super(des);
         this.at = at;
     }
@@ -17,16 +22,20 @@ public class Event extends Task {
         if (line.equals("")) {
             throw new DukeException("☹ OOPS!!!The description of a todo cannot be empty.\n");
         } else {
-            String[] split = line.split("/at");
+            String[] split = line.split("/at ");
             String task = split[0];
-            String date = split[1];
-            return new Event(task, date);
+            String[] temp = split[1].split(" ");
+            String date = temp[0];
+            LocalTime time = LocalTime.parse(temp[1]);
+            LocalDate d = LocalDate.parse(date);
+            LocalDateTime dt = d.atTime(time);
+            return new Event(task, dt);
         }
     }
 
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + "(at:" + at + ")";
+        return "[E]" + super.toString() + "(at: " + at.format(DateTimeFormatter.ofPattern("MMM d yyyy, ha")) + ")";
     }
 }

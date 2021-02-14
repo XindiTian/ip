@@ -274,7 +274,7 @@ public class TaskList {
             int len = list.size() - 1;
             String output = "Noted. I've removed this task:\n";
             output = output + "\t" + list.get(tag) + "\n";
-            output = output + "Now you have " + len + "tasks in the list. \n";
+            output = output + "Now you have " + len + " tasks in the list. \n";
             list.remove(tag);
 
             String temp = home + File.separator + "temp.txt";
