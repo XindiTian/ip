@@ -2,6 +2,10 @@ public class Task {
     protected String des;
     protected boolean status;
 
+    /**
+     * Constructor for the Object Task.
+     * @param des A string containing the description of the task.
+     */
     public Task(String des) {
         this.des = des;
         this.status = false;
@@ -12,7 +16,7 @@ public class Task {
      * @return if status is done, return [X], else return [ ]
      */
     public String getStatus() {
-        return (status? "[X]" : "[ ]");
+        return (status ? "[X]" : "[ ]");
     }
 
     /**

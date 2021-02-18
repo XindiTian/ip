@@ -6,6 +6,11 @@ import java.time.format.DateTimeFormatter;
 public class Event extends Task {
     protected LocalDateTime at;
 
+    /**
+     * Constructor for the task of type Event.
+     * @param des String describing the event.
+     * @param at Date and Time which the even is meant to happen
+     */
     public Event(String des, LocalDateTime at) {
         super(des);
         this.at = at;

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Duke {
+    private static ArrayList<Task> list = new ArrayList<>();
     /**
      * provides a platform for users to key in tasks to add to the list.
      * @param args
@@ -38,7 +39,6 @@ public class Duke {
      * You should have your own function to generate a response to user input.
      * Replace this stub with your completed method.
      */
-    ArrayList<Task> list = new ArrayList<>();
     public String getResponse(String input) {
         String[] splited = input.split("\\s+");
         return TaskList.guiTask(splited, list);

@@ -67,14 +67,14 @@ public class TaskList {
                 if (i != tag) {
                     try {
                         store.appendToFile(file, sf.nextLine() + "\n");
-                    } catch (IOException e){
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 } else {
                     try {
                         t.markAsDone();
                         Storage.appendToFile(file, "(DONE)" + sf.nextLine() + "\n");
-                    } catch (IOException e){
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 }
@@ -116,8 +116,8 @@ public class TaskList {
             for (int i = 0; i <= len; i++) {
                 if (i != tag) {
                     try {
-                        Storage.appendToFile(file,  sf.nextLine() + "\n");
-                    } catch (IOException e){
+                        Storage.appendToFile(file, sf.nextLine() + "\n");
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 }
@@ -144,7 +144,7 @@ public class TaskList {
                 } catch (IOException e) {
                     System.out.println("OOPS!!! " + e.getMessage());
                 }
-            } catch (DukeException ex){
+            } catch (DukeException ex) {
                 System.err.println("OOPS!!! The description of a todo cannot be empty.\n");
             }
         } else if (input.equals("deadline")) {
@@ -157,11 +157,11 @@ public class TaskList {
                 System.out.println("\t" + dl);
                 System.out.println("Now you have " + len + " tasks in the list.");
                 try {
-                    Storage.appendToFile(file,  "Deadline:" + " 0"+ line + "\n");
+                    Storage.appendToFile(file, "Deadline:" + " 0" + line + "\n");
                 } catch (IOException e) {
                     System.out.println("OOPS!!! " + e.getMessage());
                 }
-            } catch (DukeException ex){
+            } catch (DukeException ex) {
                 System.err.println("OOPS!!! The description of a deadline cannot be empty.\n");
             }
         } else if (input.equals("event")) {
@@ -205,6 +205,17 @@ public class TaskList {
         }
     }
 
+    /**
+     * Returns the contents of the task or list to be displayed in the user interface.
+     * Adds the task into the list if the Task is either "Todo", "Deadline" or "Event".
+     * if the command given is "done", then the task will be marked as done but stay in the list.
+     * if the command given is "delete", then the task wil be deleted and removed from the list.
+     * if the command given is "find", then the task will proceed to scan through the list.
+     * and return the respective tasks that have the matching keyword.
+     * if the command scans for an After task, then it will add the task into the task list.
+     * @param input a String array containing the input provided by the user.
+     * @param list an Array List which is the list of tasks.
+     */
     public static String guiTask(String[] input, ArrayList<Task> list) {
         Storage store = new Storage();
         String home = store.getHome();
@@ -250,14 +261,14 @@ public class TaskList {
                 if (i != tag) {
                     try {
                         store.appendToFile(file, sf.nextLine() + "\n");
-                    } catch (IOException e){
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 } else {
                     try {
                         t.markAsDone();
                         Storage.appendToFile(file, "(DONE)" + sf.nextLine() + "\n");
-                    } catch (IOException e){
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 }
@@ -301,8 +312,8 @@ public class TaskList {
             for (int i = 0; i <= len; i++) {
                 if (i != tag) {
                     try {
-                        Storage.appendToFile(file,  sf.nextLine() + "\n");
-                    } catch (IOException e){
+                        Storage.appendToFile(file, sf.nextLine() + "\n");
+                    } catch (IOException e) {
                         System.out.println("OOPS!!! " + e.getMessage());
                     }
                 }
@@ -336,7 +347,7 @@ public class TaskList {
                     return "OOPS!!! " + e.getMessage();
                 }
                 return output;
-            } catch (DukeException ex){
+            } catch (DukeException ex) {
                 return "OOPS!!! The description of a todo cannot be empty.\n";
             }
         } else if (input[0].equals("deadline")) {
@@ -354,14 +365,14 @@ public class TaskList {
                 int len = list.size();
                 String output = "Got it. I've added this task:\n";
                 output = output + "\t" + dl + "\n";
-                output = output+ "Now you have " + len + " tasks in the list.\n";
+                output = output + "Now you have " + len + " tasks in the list.\n";
                 try {
-                    Storage.appendToFile(file,  "Deadline:" + " 0"+ line + "\n");
+                    Storage.appendToFile(file, "Deadline:" + " 0" + line + "\n");
                 } catch (IOException e) {
                     return "OOPS!!! " + e.getMessage();
                 }
                 return output;
-            } catch (DukeException ex){
+            } catch (DukeException ex) {
                 return "OOPS!!! The description of a deadline cannot be empty.\n";
             }
         } else if (input[0].equals("event")) {
@@ -379,7 +390,7 @@ public class TaskList {
                 int len = list.size();
                 String output = "Got it. I've added this task:\n";
                 output = output + "\t" + event + "\n";
-                output = output+ "Now you have " + len + " tasks in the list.\n";
+                output = output + "Now you have " + len + " tasks in the list.\n";
                 try {
                     Storage.writeToFile(file, "Event:" + " 0" + line + "\n");
                 } catch (IOException e) {
