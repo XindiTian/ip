@@ -358,6 +358,9 @@ public class TaskList {
                 for (int i = 1; i < input.length; i++) {
                     line = line + input[i] + " ";
                 }
+                if (line.split("/by ").length == 1) {
+                    return "OOPS!!! Please provide a date for the deadline!";
+                }
             }
             try {
                 Deadline dl = Deadline.makeDeadline(line);
@@ -382,6 +385,9 @@ public class TaskList {
             } else {
                 for (int i = 1; i < input.length; i++) {
                     line = line + input[i] + " ";
+                }
+                if (line.split("/at ").length == 1) {
+                    return "OOPS!!! Please provide a date for the event!";
                 }
             }
             try {

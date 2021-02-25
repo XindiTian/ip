@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    String javaFxVersion = '11.0.2'
+    String javaFxVersion = '15.0.1'
 
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'
@@ -44,11 +44,11 @@ test {
 }
 
 application {
-    mainClassName = "duke.Duke"
+    mainClassName = "Launcher"
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "IP"
     archiveClassifier = null
 }
 
@@ -59,4 +59,11 @@ checkstyle {
 run{
     enableAssertions = true
     standardInput = System.in
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Launcher'
+    }
 }
